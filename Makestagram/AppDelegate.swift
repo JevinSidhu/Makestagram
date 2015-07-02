@@ -31,6 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("No logged in user :(")
     }
     
+    // Set Access Control Lists (ACLs) to read-all, but write-only for user who created
+    let acl = PFACL()
+    acl.setPublicReadAccess(true)
+    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+    
+    return true
+    
     return true
   }
 
