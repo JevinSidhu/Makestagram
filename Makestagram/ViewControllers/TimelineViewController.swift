@@ -34,6 +34,7 @@ class TimelineViewController: UIViewController {
     
 }
 
+var test : String
 // MARK: Tab Bar Delegate
 
 extension TimelineViewController: UITabBarControllerDelegate {
