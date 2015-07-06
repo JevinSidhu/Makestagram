@@ -10,7 +10,6 @@ import UIKit
 import Parse
 import ConvenienceKit
 
-
 class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
