@@ -8,10 +8,27 @@
 
 import UIKit
 import Parse
+import ConvenienceKit
 
-class TimelineViewController: UIViewController {
+
+class TimelineViewController: UIViewController, TimelineComponentTarget {
     
-    var posts: [Post] = []
+    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
+
+    
+    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        // 1
+        ParseHelper.timelineRequestforCurrentUser(range) {
+            (result: [AnyObject]?, error: NSError?) -> Void in
+            // 2
+            let posts = result as? [Post] ?? []
+            // 3
+            completionBlock(posts)
+        }
+    }
+    
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -20,27 +37,21 @@ class TimelineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timelineComponent = TimelineComponent(target: self)
         self.tabBarController?.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        ParseHelper.timelineRequestforCurrentUser {
-        (result: [AnyObject]?, error: NSError?) -> Void in
-        
-            self.posts = result as? [Post] ?? []
-            
-        // Once we have stored the new posts, we refresh the tableView.
-            self.tableView.reloadData()
-            
-        }
+        timelineComponent.loadInitialIfRequired()
+        self.tabBarController?.delegate = self
+
     }
     
     func takePhoto() {
         // instantiate photo taking class, provide callback for when photo is selected
-        photoTakingHelper =
-            PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
+        photoTakingHelper = PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
                 let post = Post()
                 post.image.value = image!
                 post.uploadPost()
@@ -69,25 +80,26 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         // Our Table View needs to have as many rows as we have posts stored in the posts property
-        return posts.count
+        return timelineComponent.content.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // In this line we have added a cast to PostTableViewCell. In Storyboard we've configured a custom class for our Table View Cell. In order to access its specific properties we need to perform a cast to the type of our custom class. Without this cast the cell variable would have a type of a plain old UITableViewCell instead of our PostTableViewCell.
-
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-        let post = posts[indexPath.row]
-
-        // Directly before a post will be displayed, we trigger the image download.
-
+        
+        let post = timelineComponent.content[indexPath.row]
         post.downloadImage()
         post.fetchLikes()
-    
-        // Instead of changing the image that is displayed in the cell from within the TimelineViewController, we assign the post that shall be displayed to the post property. After the changes we made a few steps back, the cell now takes care of displaying the image that belongs to a Post object itself.
-
         cell.post = post
         
         return cell
     }
-    
+}
+
+    extension TimelineViewController: UITableViewDelegate {
+        
+        func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+            
+            timelineComponent.targetWillDisplayEntry(indexPath.row)
+        }
+        
 }

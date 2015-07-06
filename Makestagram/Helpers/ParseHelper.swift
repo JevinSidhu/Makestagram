@@ -76,10 +76,12 @@ class ParseHelper {
     
     
     // We mark this method as static. This means we can call it without having to create an instance of ParseHelper - you should do that for all helper methods. This method has only one parameter, completionBlock: the callback block that should be called once the query has completed. The type of this parameter is PFArrayResultBlock. That's the default type for all of the callbacks in the Parse framework. By taking this callback as a parameter, we can call any Parse method and return the result of the method to that completionBlock - you'll see how we use that in 3.
+    
+    // As discussed, we modify the method signature to accept a Range argument. That Range argument will define which portions of the timeline will be loaded. Ranges in Swift are defined like this: 5..10.
 
-    static func timelineRequestforCurrentUser(completionBlock: PFArrayResultBlock) {
+    static func timelineRequestforCurrentUser(range: Range<Int>, completionBlock: PFArrayResultBlock) {
         let followingQuery = PFQuery(className: ParseFollowClass)
-        followingQuery.whereKey(ParseFollowFromUser, equalTo:PFUser.currentUser()!)
+        followingQuery.whereKey(ParseLikeFromUser, equalTo:PFUser.currentUser()!)
         
         let postsFromFollowedUsers = Post.query()
         postsFromFollowedUsers!.whereKey(ParsePostUser, matchesKey: ParseFollowToUser, inQuery: followingQuery)
@@ -91,8 +93,13 @@ class ParseHelper {
         query.includeKey(ParsePostUser)
         query.orderByDescending(ParsePostCreatedAt)
         
-        // The entire body of this method is unchanged, it's the exact timeline query that we've built within the TimelineViewController. The only difference is the last line of the method. Instead of providing a closure and handling the results of the query within this method, we hand off the results to the closure that has been handed to use through the completionBlock parameter. This means, whoever calls the timelineRequestforCurrentUser method will be able to handle the result returned from the query!
+        // PFQuery provides a skip property. That allows us - as the name lets us suspect - to define how many elements that match our query shall be skipped. This is the equivalent of the startIndex of our range, so all we need to do is a simple assignment.
 
+        query.skip = range.startIndex
+        // We make use of an additional property of PFQuery: limit. The limit property defines how many elements we want to load. We calculate the size of the range (by subtracting the startIndex from the endIndex) and pass the result to the limit property.
+
+        query.limit = range.endIndex - range.startIndex
+        
         query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
