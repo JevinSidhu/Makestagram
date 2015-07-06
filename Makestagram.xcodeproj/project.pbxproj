@@ -14,6 +14,7 @@
 		099FAC481B47E11A0015E9D4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FAC471B47E11A0015E9D4 /* PostTableViewCell.swift */; };
 		099FAC4A1B47E71A0015E9D4 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099FAC491B47E71A0015E9D4 /* ParseHelper.swift */; };
 		09AC33401B4A83AD00F9605F /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC333F1B4A83AD00F9605F /* FriendSearchTableViewCell.swift */; };
+		09AC334C1B4AFD2500F9605F /* PostSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AC334B1B4AFD2500F9605F /* PostSectionHeaderView.swift */; };
 		09F863C11B458FD10067EDE8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F863C01B458FD10067EDE8 /* Post.swift */; };
 		62551B6C1B06BF6D000913E4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B631B06BF6D000913E4 /* Bolts.framework */; };
 		62551B6D1B06BF6D000913E4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */; };
@@ -51,6 +52,7 @@
 		62C8C1ED1B06BD6500DC3EA7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EC1B06BD6500DC3EA7 /* Images.xcassets */; };
 		62C8C1F01B06BD6500DC3EA7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 62C8C1EE1B06BD6500DC3EA7 /* LaunchScreen.xib */; };
 		62C8C1FC1B06BD6500DC3EA7 /* MakestagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */; };
+		9EBD81C8C48251A0453B6830 /* libPods-Makestagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F3777144E34D453C86E9D88 /* libPods-Makestagram.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,7 +158,10 @@
 		099FAC471B47E11A0015E9D4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		099FAC491B47E71A0015E9D4 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		09AC333F1B4A83AD00F9605F /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FriendSearchTableViewCell.swift; path = Makestagram/FriendSearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		09AC334B1B4AFD2500F9605F /* PostSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostSectionHeaderView.swift; sourceTree = "<group>"; };
 		09F863C01B458FD10067EDE8 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		1F3777144E34D453C86E9D88 /* libPods-Makestagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Makestagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		45EAF0921CF034680AAEF385 /* Pods-Makestagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.release.xcconfig"; sourceTree = "<group>"; };
 		62551B631B06BF6D000913E4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 		62C8C1F51B06BD6500DC3EA7 /* MakestagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakestagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		62C8C1FA1B06BD6500DC3EA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62C8C1FB1B06BD6500DC3EA7 /* MakestagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakestagramTests.swift; sourceTree = "<group>"; };
+		C3DC5494624D10D606F2EF49 /* Pods-Makestagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makestagram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,7 @@
 				62551B6D1B06BF6D000913E4 /* FBSDKCoreKit.framework in Frameworks */,
 				62551B6E1B06BF6D000913E4 /* FBSDKLoginKit.framework in Frameworks */,
 				62551B701B06BF6D000913E4 /* Parse.framework in Frameworks */,
+				9EBD81C8C48251A0453B6830 /* libPods-Makestagram.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +296,7 @@
 				62551B691B06BF6D000913E4 /* ParseFacebookUtils.framework */,
 				62551B6A1B06BF6D000913E4 /* ParseFacebookUtilsV4.framework */,
 				62551B6B1B06BF6D000913E4 /* ParseUI.framework */,
+				1F3777144E34D453C86E9D88 /* libPods-Makestagram.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -367,6 +375,7 @@
 				62C8C1E21B06BD6500DC3EA7 /* Makestagram */,
 				62C8C1F81B06BD6500DC3EA7 /* MakestagramTests */,
 				62C8C1E11B06BD6500DC3EA7 /* Products */,
+				C4771413DFB69D95DF266363 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -382,6 +391,7 @@
 		62C8C1E21B06BD6500DC3EA7 /* Makestagram */ = {
 			isa = PBXGroup;
 			children = (
+				09AC334B1B4AFD2500F9605F /* PostSectionHeaderView.swift */,
 				09AC332E1B4A7D0600F9605F /* FriendSearch */,
 				099FAC3C1B47E0A60015E9D4 /* Views */,
 				09F863BF1B458FC40067EDE8 /* Models */,
@@ -423,6 +433,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C4771413DFB69D95DF266363 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C3DC5494624D10D606F2EF49 /* Pods-Makestagram.debug.xcconfig */,
+				45EAF0921CF034680AAEF385 /* Pods-Makestagram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,10 +449,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 62C8C1FF1B06BD6500DC3EA7 /* Build configuration list for PBXNativeTarget "Makestagram" */;
 			buildPhases = (
+				8702E554F58CFD8DD5B500FF /* Check Pods Manifest.lock */,
 				62C8C1DC1B06BD6500DC3EA7 /* Sources */,
 				62C8C1DD1B06BD6500DC3EA7 /* Frameworks */,
 				62C8C1DE1B06BD6500DC3EA7 /* Resources */,
 				62A07D1C1B1E56C2001F6916 /* Embed Frameworks */,
+				18F85FA0D95C6670D5D9E126 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -596,6 +617,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		18F85FA0D95C6670D5D9E126 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makestagram/Pods-Makestagram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8702E554F58CFD8DD5B500FF /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		62C8C1DC1B06BD6500DC3EA7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -612,6 +666,7 @@
 				094E91A91B4343EE00215808 /* PhotoTakingHelper.swift in Sources */,
 				094E91A41B433AEB00215808 /* PhotoViewController.swift in Sources */,
 				62C8C1E61B06BD6500DC3EA7 /* AppDelegate.swift in Sources */,
+				09AC334C1B4AFD2500F9605F /* PostSectionHeaderView.swift in Sources */,
 				627718971B0A581700AF5C6E /* FilterViewController.swift in Sources */,
 				099FAC4A1B47E71A0015E9D4 /* ParseHelper.swift in Sources */,
 				099FAC481B47E11A0015E9D4 /* PostTableViewCell.swift in Sources */,
@@ -751,6 +806,7 @@
 		};
 		62C8C2001B06BD6500DC3EA7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3DC5494624D10D606F2EF49 /* Pods-Makestagram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -770,6 +826,7 @@
 		};
 		62C8C2011B06BD6500DC3EA7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 45EAF0921CF034680AAEF385 /* Pods-Makestagram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

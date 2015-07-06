@@ -9,6 +9,7 @@
 import UIKit
 import Bond
 import Parse
+import ConvenienceKit
 
 class PostTableViewCell: UITableViewCell {
     
@@ -75,14 +76,19 @@ class PostTableViewCell: UITableViewCell {
         
         
         didSet {
-            // Whenever a new value is assigned to the post property, we use optional binding to check whether the new value is nil.
+            // free memory of image stored with post that is no longer displayed
+            // 1
+            if let oldValue = oldValue where oldValue != post {
+                // 2
+                likeBond.unbindAll()
+                postImageView.designatedBond.unbindAll()
+                // 3
+                if (oldValue.image.bonds.count == 0) {
+                    oldValue.image.value = nil
+                }
+            }
+            
             if let post = post {
-                
-        /* If the value isn't nil, we create a binding between the image property of the post and the postImageView using the ->> operator. The Bond library has special support for many UI components, including the UIImageView.
-                
-            This support allows us to bind an UIImage (post.image) directly to a UIImageView
-                (postImageView) - whenever post.image updates, the displayed image of postImageView will update magically.*/
-
                 // bind the image of the post to the 'postImage' view
                 post.image ->> postImageView
                 
