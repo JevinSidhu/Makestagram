@@ -16,12 +16,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
-        // 1
         ParseHelper.timelineRequestforCurrentUser(range) {
             (result: [AnyObject]?, error: NSError?) -> Void in
-            // 2
+            
             let posts = result as? [Post] ?? []
-            // 3
             completionBlock(posts)
         }
     }
@@ -49,7 +47,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     }
     
     func takePhoto() {
-        // instantiate photo taking class, provide callback for when photo is selected
+        // Instantiate photo taking class, provide callback for when photo is selected
         photoTakingHelper = PhotoTakingHelper(viewController: self.tabBarController!) { (image: UIImage?) in
                 let post = Post()
                 post.image.value = image!
